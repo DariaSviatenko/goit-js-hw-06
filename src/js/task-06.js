@@ -1,31 +1,16 @@
-// const textInput = document.querySelector(".text-input");
-// const setFocusBtn = document.querySelector('[data-action="set"]');
-// const removeFocusBtn = document.querySelector('[data-action="remove"]');
+const textInput = document.querySelector("#validation-input");
 
-// setFocusBtn.addEventListener("click", () => {
-//   textInput.focus();
-// });
+const length = textInput.dataset.length;
 
-// removeFocusBtn.addEventListener("click", () => {
-//   textInput.blur();
-// });
+textInput.addEventListener("blur", onInputBlur);
 
-// textInput.addEventListener("focus", () => {
-//   textInput.value = "This input has focus";
-// });
-
-// textInput.addEventListener("blur", () => {
-//   textInput.value = "";
-// });
-{/* <body>
-    <p><a href="index.html">Go back</a></p>
-
-    <input
-      type="text"
-      id="validation-input"
-      data-length="6"
-      placeholder="Please enter 6 symbols"
-    />
-
-    <script src="js/task-06.js" type="module"></script>
-  </body> */}
+function onInputBlur(event) {
+  textInput.classList.remove("valid");
+  textInput.classList.remove("invalid");
+  console.log(typeof length, typeof event.currentTarget.value.length);
+  if (event.currentTarget.value.length === parseInt(length)) {
+    textInput.classList.add("valid");
+  } else {
+    textInput.classList.add("invalid");
+  }
+}
