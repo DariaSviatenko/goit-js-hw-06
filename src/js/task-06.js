@@ -5,8 +5,7 @@ const length = textInput.dataset.length;
 textInput.addEventListener("blur", onInputBlur);
 
 function onInputBlur(event) {
-  // textInput.classList.remove("valid");
-  // textInput.classList.remove("invalid");
+  
   textInput.className = "";
   console.log(typeof length, typeof event.currentTarget.value.length);
   if (event.currentTarget.value.length === parseInt(length)) {
